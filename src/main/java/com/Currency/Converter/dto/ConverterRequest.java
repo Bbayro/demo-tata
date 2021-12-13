@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,7 +15,7 @@ public class ConverterRequest {
     private Double monto;
     private Double resultado;
     private Double tipocambio;
-    private String Origen;
-    private String Destino;
+    private String origen;
+    private String destino;
 
 }

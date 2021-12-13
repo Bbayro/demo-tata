@@ -1,40 +1,32 @@
 package com.Currency.Converter.Controller;
 
 
-import com.Currency.Converter.Common.EntityDtoConverter;
-import com.Currency.Converter.entities.ExchangePost;
-import com.Currency.Converter.entities.ExchangeRate;
 import com.Currency.Converter.Service.ConverterService;
 import com.Currency.Converter.dto.ConverterRequest;
 import com.Currency.Converter.dto.ConverterResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ConverterController {
 
     @Autowired
-    Environment environment;
+    private ConverterService service;
 
-    @Autowired
-    private ConverterService converterService;
-
-    @Autowired
-    private EntityDtoConverter converter;
 
     @PostMapping("/currencyconverter")
-    public ResponseEntity<ConverterResponse> createOperation (@RequestBody ConverterRequest converterRequest){
-        ExchangeRate exchangeRate=converterService.createExchange(converterRequest);
-        return new ResponseEntity<ConverterResponse>(converter.convertEntityToDto2(exchangeRate), HttpStatus.CREATED);
+    public ResponseEntity<ConverterResponse> convert(@RequestBody ConverterRequest converterRequest) {
+        ConverterResponse response = service.executeExchange(converterRequest);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PostMapping("/exchangerateupdate")
-    public ResponseEntity<Void> createOperation1 (@RequestBody ConverterRequest converterRequest){
-        ExchangePost exchangePost=converterService.createExchangePost(converterRequest);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<Void> update(@RequestBody ConverterRequest converterRequest) {
+        service.updateExchangeRate(converterRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }
