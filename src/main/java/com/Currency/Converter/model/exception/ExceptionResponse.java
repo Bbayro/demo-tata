@@ -1,4 +1,4 @@
-package com.Currency.Converter.Exception;
+package com.Currency.Converter.model.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

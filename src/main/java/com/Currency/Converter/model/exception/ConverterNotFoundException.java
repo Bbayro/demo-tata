@@ -1,4 +1,4 @@
-package com.Currency.Converter.Exception;
+package com.Currency.Converter.model.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

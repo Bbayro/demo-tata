@@ -1,4 +1,4 @@
-package com.Currency.Converter.entities;
+package com.Currency.Converter.model.entities;
 
 import lombok.Data;
 

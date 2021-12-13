@@ -1,4 +1,4 @@
-package com.Currency.Converter.dto;
+package com.Currency.Converter.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

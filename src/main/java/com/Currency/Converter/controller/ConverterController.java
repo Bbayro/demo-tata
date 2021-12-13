@@ -1,9 +1,9 @@
-package com.Currency.Converter.Controller;
+package com.Currency.Converter.controller;
 
 
-import com.Currency.Converter.Service.ConverterService;
-import com.Currency.Converter.dto.ConverterRequest;
-import com.Currency.Converter.dto.ConverterResponse;
+import com.Currency.Converter.model.dto.ConverterRequest;
+import com.Currency.Converter.model.dto.ConverterResponse;
+import com.Currency.Converter.service.ConverterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +21,12 @@ public class ConverterController {
     @PostMapping("/currencyconverter")
     public ResponseEntity<ConverterResponse> convert(@RequestBody ConverterRequest converterRequest) {
         ConverterResponse response = service.executeExchange(converterRequest);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/exchangerateupdate")
     public ResponseEntity<Void> update(@RequestBody ConverterRequest converterRequest) {
         service.updateExchangeRate(converterRequest);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

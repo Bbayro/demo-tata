@@ -1,11 +1,11 @@
-package com.Currency.Converter.Service;
+package com.Currency.Converter.service;
 
-import com.Currency.Converter.Common.ExceptionMessagesEnum;
-import com.Currency.Converter.Exception.IncorrectConverterRequestException;
-import com.Currency.Converter.Repository.ConverterRepository;
-import com.Currency.Converter.dto.ConverterRequest;
-import com.Currency.Converter.dto.ConverterResponse;
-import com.Currency.Converter.entities.ExchangeRate;
+import com.Currency.Converter.utils.common.ExceptionMessagesEnum;
+import com.Currency.Converter.model.exception.IncorrectConverterRequestException;
+import com.Currency.Converter.repository.ConverterRepository;
+import com.Currency.Converter.model.dto.ConverterRequest;
+import com.Currency.Converter.model.dto.ConverterResponse;
+import com.Currency.Converter.model.entities.ExchangeRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

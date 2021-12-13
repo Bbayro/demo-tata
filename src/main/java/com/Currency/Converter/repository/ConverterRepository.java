@@ -1,6 +1,6 @@
-package com.Currency.Converter.Repository;
+package com.Currency.Converter.repository;
 
-import com.Currency.Converter.entities.ExchangeRate;
+import com.Currency.Converter.model.entities.ExchangeRate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
